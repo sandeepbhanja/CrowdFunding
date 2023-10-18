@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import CustomButton from "./CustomButton";
 import { logo, menu, search, thirdweb } from "../assets";
 import { navlinks } from "../constants";
+import { useStateContext } from "../context";
 
 const Navbar = () => {
-  const address = "0xabc";
+  const {connect , address} = useStateContext();
+  // const address = "0xabc";
   const navigate = useNavigate();
   const [active, setActive] = useState("dashboard");
   const [toggleDrawer, setToggleDrawer] = useState(false);
@@ -17,7 +19,7 @@ const Navbar = () => {
           placeholder="Search for Campaigns"
           className="flex w-full font-epilogue font-normal text-14px placeholder:text-[#4b5264] text-white bg-transparent outline-none"
         />
-        <div className="w-[72px] h-full rounded-[20px] bg-[#4acd8d] flex justify-center items-center cursor-pointer">
+        <div className="w-[72px] h-full rounded-[20px] bg-[#1dc071] flex justify-center items-center cursor-pointer">
           <img
             src={search}
             alt="search"
@@ -32,7 +34,7 @@ const Navbar = () => {
           styles={address ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
           handleClick={() => {
             if (address) navigate("create-campaign");
-            else `connect()`;
+            else connect();
           }}
         />
         <Link to="/profile">
@@ -103,7 +105,7 @@ const Navbar = () => {
               styles={address ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
               handleClick={() => {
                 if (address) navigate("create-campaign");
-                else `connect()`;
+                else connect();
               }}
             />
           </div>
