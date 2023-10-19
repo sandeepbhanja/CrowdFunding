@@ -8,6 +8,7 @@
     "preview": "vite preview",
     "deploy": "yarn build && npx thirdweb@latest upload dist"
   },
+  "homepage": "https://github.com/sandeepbhanja/CrowdFunding/",
   "dependencies": {
     "@thirdweb-dev/chains": "^0.1.55",
     "@thirdweb-dev/react": "^3",
